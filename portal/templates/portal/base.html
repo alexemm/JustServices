@@ -1,0 +1,59 @@
+{%  load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Just Services!</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'portal/startbootstrap-simple-sidebar-gh-pages/css/simple-sidebar.css' %}" />
+</head>
+<body>
+
+
+<div id='wrapper' class="toggled"><div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Applications
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'portal:index' %}">Dashboard</a>
+                </li>
+                <li>
+                    <a href="{% url 'pictures:picture_index' %}">Pictures</a>
+                </li>
+                <li>
+                    <a href="#">Statisticals</a>
+                </li>
+                <li>
+                    <a href="#">Chess</a>
+                </li>
+                <li>
+                    <a href="{% url 'portal:about' %}">About</a>
+                </li>
+                <li>
+                    <a href="#">Services</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </div><div id="page-content-wrapper">
+            <div class="container-fluid">
+                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+                <h1>{% block header %}{% endblock %}</h1>
+                <p>{% block content %}{% endblock %}</p>
+
+            </div>
+        </div>
+</div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+<script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
