@@ -1,12 +1,15 @@
 from django.shortcuts import render
 
-from django.views.generic import TemplateView
+from django.views.generic import View
 from django.template import loader
 from django.http import HttpResponse
 
 # Create your views here.
 
-class IndexView(TemplateView):
+'''
+View to see the Dashboard/ Index page
+'''
+class IndexView(View):
     template_name = 'portal/index.html'
 
 
@@ -14,7 +17,11 @@ class IndexView(TemplateView):
         template = loader.get_template(self.template_name)
         return HttpResponse(template.render({}, request))
 
-class AboutView(TemplateView):
+'''
+    View to show the About Page
+'''
+
+class AboutView(View):
     template_name = 'portal/about.html'
 
     def get(self, request):
