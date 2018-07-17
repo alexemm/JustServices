@@ -4,6 +4,8 @@ from django.views.generic import View
 from django.template import loader
 from django.http import HttpResponse
 
+from .models import SocialNetwork
+
 # Create your views here.
 
 '''
@@ -24,6 +26,10 @@ class IndexView(View):
 class AboutView(View):
     template_name = 'portal/about.html'
 
+
+
     def get(self, request):
-        template = loader.get_template(self.template_name)
-        return HttpResponse(template.render({}, request))
+        context = {
+            'social_networks': SocialNetwork.objects.all()
+        }
+        return render(request, self.template_name, context)

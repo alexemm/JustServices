@@ -5,13 +5,9 @@
 {% block content %}Alexander Emmerich
     <br>Software Developer
     <br><br>
-    <a href="https://github.com/alexemm">
-        <img  src="{% static 'portal/images/github-icon.png' %}" height=64 width=64 alt="'Github'">
-    </a>
-    <a href="https://www.linkedin.com/in/alexander-emmerich-65ba97147/">
-        <img  src="{% static 'portal/images/linkedin-icon.png' %}" height=64 width=64 alt="'LinkedIn'">
-    </a>
-    <a href="https://www.xing.com/profile/Alexander_Emmerich17/cv?sc_o=mxb_p">
-        <img  src="{% static 'portal/images/xing-icon2.png' %}" height=64 width=64 alt="'Xing'">
-    </a>
+    {% for social_network in social_networks %}
+        <a href="{{ social_network.url_to_page }}">
+            <img src="{{ social_network.icon.url }}" alt="{{ social_network.name }}" height=64 width=64>
+        </a>
+    {% endfor %}
 {% endblock %}
