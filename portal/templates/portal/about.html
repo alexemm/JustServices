@@ -1,0 +1,13 @@
+{% extends 'portal/base.html' %}
+{%  load static %}
+{% block header %}About{% endblock %}
+
+{% block content %}Alexander Emmerich
+    <br>Software Developer
+    <br><br>
+    {% for social_network in social_networks %}
+        <a href="{{ social_network.url_to_page }}">
+            <img src="{{ social_network.icon.url }}" alt="{{ social_network.name }}" height=64 width=64>
+        </a>
+    {% endfor %}
+{% endblock %}
