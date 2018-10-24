@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'UserManagementTool',
 ]
 
 MIDDLEWARE = [
@@ -118,3 +119,24 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
+
+MEDIA_URL = '/media/'
+
+LOGIN_REDIRECT_URL = '/account/'
+
+LOGIN_URL = '/account/login/'
+
+LOGIN_EXEMPT_URLS = (
+    r'^account/logout/$',
+    r'^account/register/$',
+    r'^account/reset-password/$',
+    r'^account/reset-password/done/$',
+    r'^account/reset-password/confirm/(?P<uibd64>[0-9A-Za-z]+)-(?<token>,+)/$',
+    r'^account/reset-password/complete/$',
+)
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
